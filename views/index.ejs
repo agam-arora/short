@@ -1,0 +1,82 @@
+<link href="/css/style.css" rel="stylesheet">
+
+<h1 class="ui center aligned header" id="head">Shorten Link</h1>
+<div class="ui container">
+  <div class="ui center aligned raised very padded text container segment" id="form-exterior">
+    <form action="/" method="post">
+      <div class="ui input focus fluid " id="form-interior">
+        <input type="text" class="" id="origUrl" name="orignal" required placeholder="Enter url with http or https">
+      </div>
+      <button id="formsubmit" class="big ui basic teal button" type="submit">Submit</button>  
+    </form>  
+  </div>
+  <div class="ui center container" id="results">
+    <% if (yes==1) { %>
+      <div class="ui center aligned container">
+      <div class="ui center green message aligned text container"><a href="<%= res %>" target="_blank"><%= res %> </a></div>
+      </div>
+    <% } %>
+    <% if (yes==0 && res.length>0) { %>
+      <div class="ui center aligned container">
+      <div class="ui center red message aligned text container"><%= res %></div>
+      </div>
+    <% } %>
+  </div>
+</div>
+<div class="ui center aligned container" id="buttons">
+  <button id="click" class="big ui button">Recent</button>
+  <button id="click1" class="big ui button">Max</button>
+</div>
+
+<div class="ui center aligned text container">
+  <div id="table" class="ui two column center aligned container">
+    <table id="recent" class="ui large fixed single line celled table">
+      <thead>
+        <tr>
+          <th>Orignal Url</th>
+          <th class="right aligned ">Short Url</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0;i<urlrecent.length;i++ ){ %>
+          <tr>
+            <th><%= urlrecent[i].origUrl %></th>
+            <th class="right aligned"><a href="<%= urlrecent[i].shortUrl %>" target="_blank"><%= urlrecent[i].shortUrl %></a></th>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>   
+  <div id="table" class="ui two column center aligned container">
+    <table id="sorted" class="ui large fixed single line celled table">
+      <thead>
+        <tr>
+          <th>Orignal Url</th>
+          <th class="right aligned">Short Url</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0;i<urlmax.length;i++ ){ %>
+          <tr>
+            <th><%= urlmax[i].origUrl %></th>
+            <th class="right aligned"><a href="<%= urlmax[i].shortUrl %>" target="_blank"><%= urlmax[i].shortUrl %> </a></th>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+<script >
+  $(document).ready(function(){
+    $("#click").click(function(){
+      $("#recent").show();
+      $("#sorted").hide();
+    });
+    $("#click1").click(function(){
+      $("#recent").hide();
+      $("#sorted").show();
+    });
+});
+</script>

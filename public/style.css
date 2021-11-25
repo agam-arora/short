@@ -1,0 +1,31 @@
+body{
+    background-color:lightskyblue;
+}
+#head{
+    margin-bottom: 1.5em;
+    font-size:40px;
+    color: rgb(30, 26, 48);
+}
+#form-interior{
+    max-width:inherit;
+    margin-bottom: 2em;
+}
+#form-exterior{
+    background-color:rgb(235, 244, 250);
+}
+#recent{
+    display: none;
+}
+#sorted{
+    display: none;
+}
+#table{
+    max-width:1px;
+}
+#buttons{
+    margin-bottom: 1.5em;
+}
+#results{
+    margin-bottom: 1em;
+}
+
